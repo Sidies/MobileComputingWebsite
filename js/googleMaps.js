@@ -1,5 +1,6 @@
-var map = "undefined";
-
+var map = null;
+const startLocation = { lat: 48.9748, lng: 8.3113 };
+const zoom = 18;
 
 // This function will be called after page has been loaded
 $(function() {
@@ -10,10 +11,10 @@ $(function() {
 
 function initMap() {
     // The location
-    const startLocation = { lat: 48.974, lng: 10.311 };
+     
     // The map, centered
     map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 15,
+        zoom: zoom,
         center: startLocation,
     });
     
@@ -29,7 +30,7 @@ function setMarkerAndPosition(lati, long) {
     const ort = { lat: lati, lng: long };
     
     map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 15,
+        zoom: zoom,
         center: ort,
     });
 
@@ -65,5 +66,5 @@ function drawLine() {
       strokeWeight: 2,
     });
     flightPath.setMap(map);
-    alert("Line has been drawn");
+    //alert("Line has been drawn");
   }
