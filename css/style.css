@@ -1,0 +1,54 @@
+.color_darkprimary {
+    background-color: #455A64;
+}
+
+.color_lightprimary {
+    background-color: #CFD8DC;
+}
+
+.color_primary {
+    background-color: #607D8B;
+}
+
+.color_secondary {
+    background-color: #4CAF50;
+}
+
+.text_color_primary {
+    color: #212121;
+}
+
+.text_color_secondary {
+    color: #757575;
+}
+
+.color_divider {
+    background-color: #BDBDBD;
+}
+
+.text_align_center {
+    text-align: center;
+}
+
+body {
+    /*font-family: 'Roboto';*/
+}
+
+.full_width_header {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url("../Bilder/DSC02308-2-scaled.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    object-fit: none; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+    width: 100%;
+    max-height: 250px;
+  }
+
+#mapbox {
+    display: none;
+}
+

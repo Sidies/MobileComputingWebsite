@@ -1,3 +1,8 @@
+// Essentials
+function startTracking() {
+    $("#mapbox").slideToggle();
+}
+
 // Misc
 // -----------------------------------
 
