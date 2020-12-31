@@ -1,20 +1,23 @@
 // Essentials
-function startTracking() {
-    $("#mapbox").slideToggle();
-}
 
-// Misc
-// -----------------------------------
+var trackingInterval = null;
+
+function startTracking() {
+
+    if ($('#mapbox').is(':hidden')) {
+        $("#mapbox").slideDown();
+        runEveryHalfMinute();
+    }
+    else {
+        $("#mapbox").slideUp();
+        clearInterval(trackingInterval);
+    }
+
+}
 
 function runEveryHalfMinute() {
-    //setInterval(testInterval(), 3000);
-    setInterval(testInterval, 3000);
+    trackingInterval = setInterval(addCurrentLocationToHistory, 3000);
 }
 
-var i = 0;
-function testInterval() {
-    i++;
-    document.getElementById("titleTest").innerHTML = "Counter: " + i;
-    //alert("Test");
-}
+
 

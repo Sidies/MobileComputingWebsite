@@ -24,10 +24,13 @@ function setLocationWithHistory(location) {
     var lati = location.coords.latitude;
     var longi = location.coords.longitude;
     currentLocation = {lat: lati, lng: longi};
-    locationsHistory.push(currentLocation);
+    
+    if(!locationsHistory.includes(currentLocation)) {
+        locationsHistory.push(currentLocation);
 
-    showCurrentPosition();
-    drawLine();
+        showCurrentPosition();
+        drawLine();
+    }    
 }
 
 function calculateAndShowTotalDistanceOfHistoryData() {
