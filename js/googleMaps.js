@@ -11,6 +11,9 @@ $(function() {
 
 function initMap() {
     // The location
+
+    locationsHistory = null;
+    locationsHistory = [startLocation];
      
     // The map, centered
     map = new google.maps.Map(document.getElementById("map"), {

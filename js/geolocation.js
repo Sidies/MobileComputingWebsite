@@ -21,8 +21,10 @@ function setStartLocation() {
 
 function initStartLocation(location) {
     startLocation = { lat: location.coords.latitude, lng: location.coords.longitude};
+    currentLocation = startLocation;
     initMap();
     $("#mapbox").slideDown();
+    showCurrentPosition();
 }
 
 function addCurrentLocationToHistory() {
@@ -38,9 +40,9 @@ function setLocationWithHistory(location) {
     var longi = location.coords.longitude;
     currentLocation = {lat: lati, lng: longi};
     
-    if(!locationsHistory.includes(currentLocation)) {
+    if(!(locationsHistory[locationsHistory.length - 1].lat === lati && locationsHistory[locationsHistory.length - 1].lng === longi)) {
         locationsHistory.push(currentLocation);
-
+        calculateAndShowTotalDistanceOfHistoryData();
         showCurrentPosition();
         drawLine();
     }    
@@ -51,10 +53,15 @@ function calculateAndShowTotalDistanceOfHistoryData() {
     var totalDistance = 0;
     if(locationsHistory) {
         while(i + 1  < locationsHistory.length) {
-            totalDistance += distance(locationsHistory[i].lat, locationsHistory[i].lng, locationsHistory[i+1].lat, locationsHistory[i+1].lng)
+            totalDistance += parseInt(distance(locationsHistory[i].lat, locationsHistory[i].lng, locationsHistory[i+1].lat, locationsHistory[i+1].lng));
             i++;
         }
-        document.getElementById("kmdistance").innerHTML = "Komplette Distanz in Meter: " + totalDistance;
+        // Distance in meter
+        document.getElementById("kmdistance").innerHTML = totalDistance + "m";
+
+        // Steps 
+        var steps = calculateSteps(totalDistance);
+        document.getElementById("schritte").innerHTML = steps;
     }
     else {
         alert("Es gibt aktuell keine Location History!");
@@ -85,11 +92,16 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 	}
 }
 
+function calculateSteps(distance) {
+    return parseInt(distance * 1.43);
+}
+
 function showCurrentPosition() {
-    dom_location.innerHTML = "Latitude: " + currentLocation.lat + 
-    "<br>Longitude: " + currentLocation.lng;	
+    document.getElementById("latitude").innerHTML = "Latitude: " + currentLocation.lat;
+    document.getElementById("longitude").innerHTML = "Longitude: " + currentLocation.lng;
+
     setMarkerAndPosition(currentLocation.lat, currentLocation.lng);
-    calculateAndShowTotalDistanceOfHistoryData();
+    
 }
 
 function showPosition(position) {

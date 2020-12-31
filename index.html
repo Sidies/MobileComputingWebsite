@@ -84,8 +84,8 @@
       <div class="container h-100">
         <div class="row h-100 align-items-center">
           <div class="col-12 text-center text-white">
-            <h1>Hiking Tracker</h1>
-            <p class="lead">Messe deine gelaufene Reichweite</p>
+            <h1 style="font-size: 60px;">Hiking Tracker</h1>
+            <p class="lead" style="font-size: 26px;">Messe deine gelaufene Reichweite</p>
           </div>
         </div>
       </div>
@@ -120,6 +120,7 @@
      
     <!-- DEBUGGING -->
     <div style="display: none;" class="container p-5">
+      <h2>Debugging</h2>
       <form name="debugValues" method="post" action="">
         <label for="latitudeBox">Latitude</label>
         <input type="text" name="latitudeBox" id="latitudeBox">
@@ -138,14 +139,16 @@
         <div class="row text_align_center">
           <div class="col">
             <img class="rounded-circle color_darkprimary p-3" style="width:100px" src="Bilder/Schritte.svg">
-            <p id="schritte" class="mt-4">Aktuelle gelaufene Schritte</p>
+            <p class="mt-4">Aktuelle gelaufene Schritte</p>
+            <h1 id="schritte">0</h1>
             
           </div>
   
           <div class="col">
             <img class="rounded-circle color_darkprimary p-3" style="width:100px" src="Bilder/Kilometer.svg">
-            <p id="kmdistance" class="mt-4">Aktuelle Distance in km</p>
-  
+            <p class="mt-4">Aktuelle Distance in Meter</p>
+            <h1 id="kmdistance">0m</h1>
+
           </div>   
         </div>
       </div>
@@ -153,21 +156,22 @@
 
     </div>
 
-    <div class="container-fluid m-0 p-0 badge-dark">
+    <div class="container-fluid m-0 p-0 badge-dark ">
       <div class="container">
         <div class="jumbotron bg-transparent">
           <h1>Wo befinde ich mich gerade?</h1>
           <p>Finde heraus wo du dich gerade befindest</p> 
-          <p id="geoloc" class="mt-4"></p> 
+          <p id="latitude">Latitude: 0</p>
+          <p id="longitude">Longitude: 0</p> 
         </div>
       </div>      
     </div>
 
-    <!-- Footer -->
+    <!-- Footer 
     <div class="container-fluid color_primary p-5 text-white m-0">
       <p>Footer</p>
 
-    </div>
+    </div> -->
 
   </body>
 </html>
