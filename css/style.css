@@ -52,3 +52,12 @@ body {
     display: none;
 }
 
+@media (min-width: 980px) {
+    #headertitle {
+        font-size:60px;
+    }
+
+    #headersecondtitle {
+        font-size:26px;
+    }
+}
