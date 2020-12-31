@@ -1,5 +1,5 @@
 var map = null;
-const startLocation = { lat: 48.9748, lng: 8.3113 };
+var startLocation = null;
 const zoom = 18;
 
 // This function will be called after page has been loaded

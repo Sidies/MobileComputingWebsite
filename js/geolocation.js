@@ -11,13 +11,26 @@ $(function() {
     
 });
 
+function setStartLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(initStartLocation, showError);
+    } else { 
+        currentLocation.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function initStartLocation(location) {
+    startLocation = { lat: location.coords.latitude, lng: location.coords.longitude};
+    initMap();
+    $("#mapbox").slideDown();
+}
+
 function addCurrentLocationToHistory() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(setLocationWithHistory, showError);
     } else { 
         currentLocation.innerHTML = "Geolocation is not supported by this browser.";
-    }
-    
+    }    
 }
 
 function setLocationWithHistory(location) {

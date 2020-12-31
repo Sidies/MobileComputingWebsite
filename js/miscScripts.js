@@ -5,7 +5,7 @@ var trackingInterval = null;
 function startTracking() {
 
     if ($('#mapbox').is(':hidden')) {
-        $("#mapbox").slideDown();
+        setStartLocation();        
         runEveryHalfMinute();
     }
     else {
