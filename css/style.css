@@ -37,11 +37,12 @@ body {
 .full_width_header {
     height: 100vh;
     min-height: 500px;
-    background-image: url("../Bilder/DSC02308-2-scaled.jpg");
+    background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url("../Bilder/DSC02308-2-scaled.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-color: #212121;
     object-fit: none; /* Do not scale the image */
     object-position: center; /* Center the image within the element */
     width: 100%;
