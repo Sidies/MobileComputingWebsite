@@ -40,12 +40,14 @@ function setLocationWithHistory(location) {
     var longi = location.coords.longitude;
     currentLocation = {lat: lati, lng: longi};
     
-    if(!(locationsHistory[locationsHistory.length - 1].lat === lati && locationsHistory[locationsHistory.length - 1].lng === longi)) {
-        locationsHistory.push(currentLocation);
-        calculateAndShowTotalDistanceOfHistoryData();
-        showCurrentPosition();
-        drawLine();
-    }    
+    if(locationsHistory[locationsHistory.length - 1] != null) {
+        if(!(locationsHistory[locationsHistory.length - 1].lat === lati && locationsHistory[locationsHistory.length - 1].lng === longi)) {
+            locationsHistory.push(currentLocation);
+            calculateAndShowTotalDistanceOfHistoryData();
+            showCurrentPosition();
+            drawLine();
+        }    
+    }
 }
 
 function calculateAndShowTotalDistanceOfHistoryData() {
