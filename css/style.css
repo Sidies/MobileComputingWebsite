@@ -79,6 +79,10 @@ body {
     #headersecondtitle {
         font-size:26px;
     }
+
+    .custom_image {
+        max-width: 400px;
+    }
     
 }
 
